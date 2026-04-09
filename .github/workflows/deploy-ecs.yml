@@ -8,8 +8,8 @@ on:
 
 env:
   AWS_REGION: ap-south-1
-  ECR_REPOSITORY: testing-be
-  ECS_CLUSTER: demo-ecs-cloudfront
+  ECR_REPOSITORY: demo-ecs-cloudfront-backend
+  ECS_CLUSTER: demo-ecs-cloudfront-cluster
   ECS_SERVICE: demo-ecs-cloudfront
   TASK_DEFINITION: task-definition/be.json
   CONTAINER_NAME: demo-ecs-cloudfront
