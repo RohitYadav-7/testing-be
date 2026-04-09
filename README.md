@@ -20,3 +20,10 @@ npm run dev
 ```bash
 npm start
 ```
+
+## Docker
+
+```bash
+docker build -t testing-be .
+docker run -p 5000:5000 --env-file .env testing-be
+```
