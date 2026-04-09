@@ -1,0 +1,37 @@
+{
+  "family": "demo-ecs-cloudfront",
+  "taskRoleArn": "arn:aws:iam::423685520063:role/demo-ecs-cloudfront-ecs-task-role",
+  "executionRoleArn": "arn:aws:iam::423685520063:role/demo-ecs-cloudfront-ecs-execution-role",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "containerDefinitions": [
+    {
+      "name": "demo-ecs-cloudfront",
+      "image": "423685520063.dkr.ecr.ap-south-1.amazonaws.com/testing-be:latest",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 5000,
+          "hostPort": 5000,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        {
+          "name": "PORT",
+          "value": "5000"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/demo-ecs-cloudfront",
+          "awslogs-region": "ap-south-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ]
+}
